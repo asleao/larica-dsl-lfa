@@ -1,4 +1,6 @@
-// Generated from /home/asleao/Google_Drive/IFES/LFA/2017-1/Trabalho Final LFA/LaricaDoSurf.g4 by ANTLR 4.1
+package grammar;
+
+// Generated from /home/asleao/Projetos/larica-dsl-lfa/LaricaDoSurf/src/grammar/LaricaDoSurf.g4 by ANTLR 4.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -63,14 +65,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_prog; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterProg(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitProg(this);
-		}
 	}
 
 	public final ProgContext prog() throws RecognitionException {
@@ -128,14 +122,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_definicao; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterDefinicao(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitDefinicao(this);
-		}
 	}
 
 	public final DefinicaoContext definicao() throws RecognitionException {
@@ -230,14 +216,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressao; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterExpressao(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitExpressao(this);
-		}
 	}
 
 	public final ExpressaoContext expressao() throws RecognitionException {
@@ -372,14 +350,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_definicao_funcao; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterDefinicao_funcao(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitDefinicao_funcao(this);
-		}
 	}
 
 	public final Definicao_funcaoContext definicao_funcao() throws RecognitionException {
@@ -420,14 +390,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_chamada_funcao; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterChamada_funcao(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitChamada_funcao(this);
-		}
 	}
 
 	public final Chamada_funcaoContext chamada_funcao() throws RecognitionException {
@@ -465,14 +427,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_corpo; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterCorpo(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitCorpo(this);
-		}
 	}
 
 	public final CorpoContext corpo() throws RecognitionException {
@@ -539,14 +493,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parametros_formal; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterParametros_formal(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitParametros_formal(this);
-		}
 	}
 
 	public final Parametros_formalContext parametros_formal() throws RecognitionException {
@@ -601,14 +547,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parametros_real; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterParametros_real(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitParametros_real(this);
-		}
 	}
 
 	public final Parametros_realContext parametros_real() throws RecognitionException {
@@ -658,14 +596,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_funcao_print; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterFuncao_print(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitFuncao_print(this);
-		}
 	}
 
 	public final Funcao_printContext funcao_print() throws RecognitionException {
@@ -718,14 +648,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressao_condicional; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterExpressao_condicional(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitExpressao_condicional(this);
-		}
 	}
 
 	public final Expressao_condicionalContext expressao_condicional() throws RecognitionException {
@@ -809,14 +731,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_estrutura_repeticao; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterEstrutura_repeticao(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitEstrutura_repeticao(this);
-		}
 	}
 
 	public final Estrutura_repeticaoContext estrutura_repeticao() throws RecognitionException {
@@ -867,14 +781,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_id; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterId(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitId(this);
-		}
 	}
 
 	public final IdContext id() throws RecognitionException {
@@ -925,14 +831,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_condicao; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterCondicao(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitCondicao(this);
-		}
 	}
 
 	public final CondicaoContext condicao() throws RecognitionException {
@@ -970,14 +868,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_operadorcomparacao; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterOperadorcomparacao(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitOperadorcomparacao(this);
-		}
 	}
 
 	public final OperadorcomparacaoContext operadorcomparacao() throws RecognitionException {
@@ -1015,14 +905,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_operador; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterOperador(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitOperador(this);
-		}
 	}
 
 	public final OperadorContext operador() throws RecognitionException {
@@ -1060,14 +942,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_tipagem; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterTipagem(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitTipagem(this);
-		}
 	}
 
 	public final TipagemContext tipagem() throws RecognitionException {
@@ -1105,14 +979,6 @@ public class LaricaDoSurfParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_valor; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).enterValor(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LaricaDoSurfListener ) ((LaricaDoSurfListener)listener).exitValor(this);
-		}
 	}
 
 	public final ValorContext valor() throws RecognitionException {

@@ -1,0 +1,19 @@
+Integer y1 larica 10 ;
+Integer y2 larica 10 ;
+Integer y3;
+
+
+dropa(y1==10)[
+  aloha(y1);  
+  aloha("teste");  
+] vaca [
+  aloha(y2);      
+]
+
+caldo(y2<=20)[
+    y1 larica y2 + 1;    
+]
+
+caldo(y2<=20)[
+    y1 larica y2 + 1;    
+]

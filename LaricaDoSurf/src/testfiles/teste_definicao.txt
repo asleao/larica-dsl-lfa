@@ -1,0 +1,7 @@
+String y1 larica 10 ;
+Integer y2 larica 10 ;
+Integer y3;
+
+y2 larica y1*y3+2;
+y3 * y1*y2+y3;
+y2 larica y1;

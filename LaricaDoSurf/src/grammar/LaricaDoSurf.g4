@@ -1,10 +1,16 @@
 grammar LaricaDoSurf;
 
-prog : definicao;
+prog : bloco;
     
 
-definicao  : (tipagem VARIAVEL (ATRIBUICAO id)? TERMINAL)+ expressao*
-   	   ;
+bloco : definicao
+      | expressao
+    ;
+
+definicao :   tipagem 
+          |   (tipagem VARIAVEL (ATRIBUICAO id)? TERMINAL)+ expressao*         
+   	;
+
 
 expressao :  id operador id ((operador id)+)? TERMINAL
           |  VARIAVEL ATRIBUICAO id ((operador id)+)? TERMINAL  
@@ -14,13 +20,11 @@ expressao :  id operador id ((operador id)+)? TERMINAL
           |  definicao_funcao
           |  chamada_funcao   
           ;
-definicao_funcao: DEF_FUNCAO LPAR parametros_formal RPAR LCOL corpo RCOL;
+
+definicao_funcao: DEF_FUNCAO LPAR parametros_formal RPAR LCOL bloco RCOL;
 
 chamada_funcao: NOME_FUNCAO LPAR parametros_real RPAR TERMINAL;
 
-corpo: definicao
-     | expressao
-    ;
 
 parametros_formal: tipagem VARIAVEL (VIRGULA tipagem VARIAVEL)*;
 parametros_real:  id (VIRGULA  id)*;
@@ -55,10 +59,11 @@ operador : SOMA
          | MULT
          ;
 
-tipagem : TipoInteger
-        | TipoString
-        | TipoFloat
-        | TipoBoolean  
+tipagem returns [String result]
+        : tipo_integer = TipoInteger {$result = $tipo_integer.text;}
+        | tipo_string = TipoString {$result = $tipo_string.text;}
+        | tipo_float = TipoFloat {$result = $tipo_float.text;}
+        | tipo_boolean = TipoBoolean  {$result = $tipo_boolean.text;}
         ;  
 
 valor : INT

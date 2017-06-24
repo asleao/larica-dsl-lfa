@@ -1,0 +1,26 @@
+Integer y1 larica 10 ;
+Integer y2 larica 10 ;
+Integer y3;
+
+
+dropa(y1==10)[
+  aloha(y1);
+  aloha("teste");
+] vaca [
+  aloha(y2);
+]
+
+caldo(y2<=11)[
+    y1 larica y2 + 1;
+    aloha(y1);
+    y2 larica y2 +1;
+]
+
+def onda(Integer x, String y)[
+   Integer z larica x;
+   String k larica y;
+   aloha(z);
+   aloha(k);
+]
+
+call onda(10,"Onda");

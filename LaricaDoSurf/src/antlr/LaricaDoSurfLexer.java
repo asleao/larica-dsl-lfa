@@ -1,6 +1,5 @@
-package grammar;
-
-// Generated from /home/asleao/Projetos/larica-dsl-lfa/LaricaDoSurf/src/grammar/LaricaDoSurf.g4 by ANTLR 4.1
+package antlr;
+// Generated from /home/asleao/Google_Drive/IFES/LFA/2017-1/Trabalho Final LFA/LaricaDoSurf.g4 by ANTLR 4.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

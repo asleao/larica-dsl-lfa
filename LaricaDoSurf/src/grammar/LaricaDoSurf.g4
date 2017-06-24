@@ -67,10 +67,10 @@ tipagem returns [Tipagem result]
         ;  
 
 valor returns [Valor result]
-     : i = INT {$result = new Valor($i.text);}
+     : i = INT {$result = new Valor(Integer.parseInt($i.text));}
      | s = STRING {$result = new Valor($s.text);}
-     | f = FLOAT {$result = new Valor($f.text);}
-     | b = BOOLEAN  {$result = new Valor($b.text);}
+     | f = FLOAT {$result = new Valor(Float.parseFloat($f.text));}
+     | b = BOOLEAN  {$result = new Valor(Boolean.parseBoolean($b.text));}
      ; 
     
     

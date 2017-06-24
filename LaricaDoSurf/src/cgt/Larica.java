@@ -10,8 +10,11 @@ import antlr.LaricaDoSurfLexer;
 import antlr.LaricaDoSurfParser;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.List;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
  *
@@ -29,6 +32,7 @@ public class Larica {
         LaricaDoSurfParser.ValorContext ans1 = parser.valor();
         System.out.printf(">>> %s\n", ans.result);  
         System.out.printf(">>> %s\n", ans1.result); 
+        List<TerminalNode> terminalNodes = new ArrayList<TerminalNode>();                
                 
         fis.close();        
         

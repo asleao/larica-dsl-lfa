@@ -16,22 +16,6 @@ public class Valor {
     public Valor(Object valor) {
         this.valor = valor;
     }
-        
-    public Integer mkInteger(String text){
-        return Integer.parseInt(text);
-    }
-    
-    public Float mkFloat(String text){
-        return Float.parseFloat(text);
-    }
-    
-    public Boolean mkBoolean(String text){
-        return Boolean.parseBoolean(text);
-    }
-    
-    public String mkString(String text){
-        return text;
-    }
 
     @Override
     public String toString() {

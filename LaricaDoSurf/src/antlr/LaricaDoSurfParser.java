@@ -1034,7 +1034,7 @@ public class LaricaDoSurfParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(191); ((ValorContext)_localctx).i = match(INT);
-				((ValorContext)_localctx).result =  new Valor((((ValorContext)_localctx).i!=null?((ValorContext)_localctx).i.getText():null));
+				((ValorContext)_localctx).result =  new Valor(Integer.parseInt((((ValorContext)_localctx).i!=null?((ValorContext)_localctx).i.getText():null)));
 				}
 				break;
 			case STRING:
@@ -1048,14 +1048,14 @@ public class LaricaDoSurfParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(195); ((ValorContext)_localctx).f = match(FLOAT);
-				((ValorContext)_localctx).result =  new Valor((((ValorContext)_localctx).f!=null?((ValorContext)_localctx).f.getText():null));
+				((ValorContext)_localctx).result =  new Valor(Float.parseFloat((((ValorContext)_localctx).f!=null?((ValorContext)_localctx).f.getText():null)));
 				}
 				break;
 			case BOOLEAN:
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(197); ((ValorContext)_localctx).b = match(BOOLEAN);
-				((ValorContext)_localctx).result =  new Valor((((ValorContext)_localctx).b!=null?((ValorContext)_localctx).b.getText():null));
+				((ValorContext)_localctx).result =  new Valor(Boolean.parseBoolean((((ValorContext)_localctx).b!=null?((ValorContext)_localctx).b.getText():null)));
 				}
 				break;
 			default:

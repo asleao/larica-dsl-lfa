@@ -59,21 +59,20 @@ operador : SOMA
          | MULT
          ;
 
-tipagem returns [String result]
-        : tipo_integer = TipoInteger {$result = $tipo_integer.text;}
-        | tipo_string = TipoString {$result = $tipo_string.text;}
-        | tipo_float = TipoFloat {$result = $tipo_float.text;}
-        | tipo_boolean = TipoBoolean  {$result = $tipo_boolean.text;}
+tipagem returns [Tipagem result]
+        : tipo_integer = TipoInteger {$result = new Tipagem($tipo_integer.text);}
+        | tipo_string = TipoString {$result = new Tipagem($tipo_string.text);}
+        | tipo_float = TipoFloat {$result = new Tipagem($tipo_float.text);}
+        | tipo_boolean = TipoBoolean  {$result = new Tipagem($tipo_boolean.text);}
         ;  
 
-valor : INT
-     | STRING
-     | FLOAT
-     | BOOLEAN
+valor returns [Valor result]
+     : i = INT {$result = new Valor($i.text);}
+     | s = STRING {$result = new Valor($s.text);}
+     | f = FLOAT {$result = new Valor($f.text);}
+     | b = BOOLEAN  {$result = new Valor($b.text);}
      ; 
     
-
-
     
 TipoInteger : 'Integer';
 TipoString  : 'String';

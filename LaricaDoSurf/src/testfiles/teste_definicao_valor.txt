@@ -1,0 +1,4 @@
+Float 10.5;
+Boolean True;
+Integer 1;
+String "10";

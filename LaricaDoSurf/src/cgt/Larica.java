@@ -19,13 +19,18 @@ import org.antlr.v4.runtime.CommonTokenStream;
  */
 public class Larica {
     public static void main(String[] args) throws IOException {  
-        File file = new File("./src/testfiles/teste_definicao.txt");
+        File file = new File("./src/testfiles/teste_definicao_valor.txt");
         FileInputStream fis = new FileInputStream(file);
         ANTLRInputStream input = new ANTLRInputStream(fis);
         LaricaDoSurfLexer lexer = new LaricaDoSurfLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         LaricaDoSurfParser parser = new LaricaDoSurfParser(tokens);
-        LaricaDoSurfParser.TipagemContext ans = parser.tipagem();
-        System.out.printf(">>> %s\n", ans.result);
+        LaricaDoSurfParser.TipagemContext ans = parser.tipagem();         
+        LaricaDoSurfParser.ValorContext ans1 = parser.valor();
+        System.out.printf(">>> %s\n", ans.result);  
+        System.out.printf(">>> %s\n", ans1.result); 
+                
+        fis.close();        
+        
     }
 }

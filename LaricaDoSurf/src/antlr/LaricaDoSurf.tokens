@@ -54,7 +54,7 @@ WHILE=27
 'aloha'=28
 'Integer'=1
 ';'=15
-'\\'=22
 '!='=12
 'larica'=8
 'Float'=3
+'/'=22

@@ -1,9 +1,10 @@
-// Generated from /home/aleao/Projetos/larica-dsl-lfa/LaricaDoSurf/src/grammar/LaricaDoSurf.g4 by ANTLR 4.1
+// Generated from /home/ana/Documentos/LFA/larica-dsl-lfa/LaricaDoSurf/src/grammar/LaricaDoSurf.g4 by ANTLR 4.1
 
 package antlr;
 
 import ast.Tipagem;
 import ast.Valor;
+import ast.Operador;
 
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -33,7 +34,7 @@ public class LaricaDoSurfLexer extends Lexer {
 		"<INVALID>",
 		"'Integer'", "'String'", "'Float'", "'Boolean'", "INT", "FLOAT", "BOOLEAN", 
 		"'larica'", "'=='", "'<='", "'>='", "'!='", "'>'", "'<'", "';'", "'('", 
-		"')'", "'['", "']'", "'+'", "'-'", "'\\'", "'*'", "'\"'", "'dropa'", "'vaca'", 
+		"')'", "'['", "']'", "'+'", "'-'", "'/'", "'*'", "'\"'", "'dropa'", "'vaca'", 
 		"'caldo'", "'aloha'", "VARIAVEL", "STRING", "DEF_FUNCAO", "NOME_FUNCAO", 
 		"','", "WS"
 	};
@@ -135,7 +136,7 @@ public class LaricaDoSurfLexer extends Lexer {
 		"\u00a3\7=\2\2\u00a3&\3\2\2\2\u00a4\u00a5\7*\2\2\u00a5(\3\2\2\2\u00a6\u00a7"+
 		"\7+\2\2\u00a7*\3\2\2\2\u00a8\u00a9\7]\2\2\u00a9,\3\2\2\2\u00aa\u00ab\7"+
 		"_\2\2\u00ab.\3\2\2\2\u00ac\u00ad\7-\2\2\u00ad\60\3\2\2\2\u00ae\u00af\7"+
-		"/\2\2\u00af\62\3\2\2\2\u00b0\u00b1\7^\2\2\u00b1\64\3\2\2\2\u00b2\u00b3"+
+		"/\2\2\u00af\62\3\2\2\2\u00b0\u00b1\7\61\2\2\u00b1\64\3\2\2\2\u00b2\u00b3"+
 		"\7,\2\2\u00b3\66\3\2\2\2\u00b4\u00b5\7$\2\2\u00b58\3\2\2\2\u00b6\u00b7"+
 		"\7f\2\2\u00b7\u00b8\7t\2\2\u00b8\u00b9\7q\2\2\u00b9\u00ba\7r\2\2\u00ba"+
 		"\u00bb\7c\2\2\u00bb:\3\2\2\2\u00bc\u00bd\7x\2\2\u00bd\u00be\7c\2\2\u00be"+

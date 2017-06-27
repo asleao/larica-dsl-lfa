@@ -22,17 +22,19 @@ import org.antlr.v4.runtime.tree.TerminalNode;
  */
 public class Larica {
     public static void main(String[] args) throws IOException {  
-        File file = new File("./src/testfiles/teste_definicao_valor.txt");
+        File file = new File("./src/testfiles/teste_operador.txt");
         FileInputStream fis = new FileInputStream(file);
         ANTLRInputStream input = new ANTLRInputStream(fis);
         LaricaDoSurfLexer lexer = new LaricaDoSurfLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         LaricaDoSurfParser parser = new LaricaDoSurfParser(tokens);
-        LaricaDoSurfParser.TipagemContext ans = parser.tipagem();         
-        LaricaDoSurfParser.ValorContext ans1 = parser.valor();
-        System.out.printf(">>> %s\n", ans.result);  
-        System.out.printf(">>> %s\n", ans1.result); 
-        List<TerminalNode> terminalNodes = new ArrayList<TerminalNode>();                
+        
+        /*LaricaDoSurfParser.TipagemContext ans = parser.tipagem();         
+        LaricaDoSurfParser.ValorContext ans1 = parser.valor();*/
+        
+        LaricaDoSurfParser.OperadorContext ans = parser.operador();
+        System.out.printf(">>> %s\n", ans.result);   
+        
                 
         fis.close();        
         

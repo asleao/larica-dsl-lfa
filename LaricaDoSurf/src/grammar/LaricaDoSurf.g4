@@ -5,17 +5,18 @@ package antlr;
 
 import ast.Tipagem;
 import ast.Valor;
+import ast.Operador;
 }
 
 prog : bloco;
     
 
 bloco : definicao+  expressao*
-    ;
+      ;
 
 definicao :  (tipagem VARIAVEL (ATRIBUICAO id)? TERMINAL)         
-   	;
-
+          ;
+ 
 
 expressao :  id operador id ((operador id)+)? TERMINAL
           |  VARIAVEL ATRIBUICAO id ((operador id)+)? TERMINAL  
@@ -58,10 +59,11 @@ operadorcomparacao : IGUAL
                    ;
 
 
-operador : SOMA
-         | SUB
-         | DIV
-         | MULT
+operador returns [Operador result]
+         : s = SOMA {$result = new Operador($s.text);}
+         | sub = SUB {$result = new Operador($sub.text);}
+         | d = DIV {$result = new Operador($d.text);}
+         | m = MULT {$result = new Operador($m.text);}
          ;
 
 tipagem returns [Tipagem result]
@@ -110,7 +112,7 @@ LCOL : '[' ;
 RCOL : ']' ;
 SOMA : '+';
 SUB : '-' ;
-DIV : '\\' ;
+DIV : '/' ;
 MULT : '*' ;
 ASP : '"' ;
 IF : 'dropa';

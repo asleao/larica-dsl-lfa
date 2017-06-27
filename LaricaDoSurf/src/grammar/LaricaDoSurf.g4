@@ -1,5 +1,12 @@
 grammar LaricaDoSurf;
 
+@header {
+package antlr;
+
+import ast.Tipagem;
+import ast.Valor;
+}
+
 prog : bloco;
     
 

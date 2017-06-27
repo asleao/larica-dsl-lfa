@@ -9,19 +9,20 @@ package ast;
  *
  * @author ana
  */
-public class Operador {
+public class OperadorComparacao {
     
     
-    private String op;
-    
-    public Operador(String op){
-        this.op = op;
+    private String opc;
+
+    public OperadorComparacao(String opc) {
+        this.opc = opc;
     }
 
     @Override
     public String toString() {
-        return "Operador{" + "op=" + op + '}';
+        return "OperadorComparacao{" + "opc=" + opc + '}';
     }
+    
     
     
 }

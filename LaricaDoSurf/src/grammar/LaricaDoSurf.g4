@@ -6,6 +6,7 @@ package antlr;
 import ast.Tipagem;
 import ast.Valor;
 import ast.Operador;
+import ast.OperadorComparacao;
 }
 
 prog : bloco;
@@ -50,12 +51,13 @@ condicao : (VARIAVEL operadorcomparacao valor)
          ;
 
 
-operadorcomparacao : IGUAL
-                   | DIFERENTE
-                   | MAIOR
-                   | MENOR
-                   | MENORIGUAL
-                   | MAIORIGUAL
+operadorcomparacao returns [OperadorComparacao result]
+                   : i = IGUAL {$result = new OperadorComparacao($i.text);}
+                   | d = DIFERENTE {$result = new OperadorComparacao($d.text);}
+                   | maior = MAIOR {$result = new OperadorComparacao($maior.text);}
+                   | menor = MENOR {$result = new OperadorComparacao($menor.text);}
+                   | menorIgual = MENORIGUAL {$result = new OperadorComparacao($menorIgual.text);}
+                   | maiorIgual = MAIORIGUAL {$result = new OperadorComparacao($maiorIgual.text);}
                    ;
 
 

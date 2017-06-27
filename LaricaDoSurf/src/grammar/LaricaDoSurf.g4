@@ -10,12 +10,10 @@ import ast.Valor;
 prog : bloco;
     
 
-bloco : definicao
-      | expressao
+bloco : definicao+  expressao*
     ;
 
-definicao :   tipagem 
-          |   (tipagem VARIAVEL (ATRIBUICAO id)? TERMINAL)+ expressao*         
+definicao :  (tipagem VARIAVEL (ATRIBUICAO id)? TERMINAL)         
    	;
 
 

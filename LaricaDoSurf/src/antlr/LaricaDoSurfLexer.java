@@ -1,6 +1,7 @@
 // Generated from /home/aleao/Projetos/larica-dsl-lfa/LaricaDoSurf/src/grammar/LaricaDoSurf.g4 by ANTLR 4.1
 
 package antlr;
+
 import ast.Tipagem;
 import ast.Valor;
 

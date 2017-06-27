@@ -11,20 +11,30 @@ prog : bloco;
     
 
 bloco : definicao+  expressao*
-    ;
+      ;
 
 definicao :  (tipagem VARIAVEL (ATRIBUICAO id)? TERMINAL)         
    	;
 
 
-expressao :  id operador id ((operador id)+)? TERMINAL
-          |  VARIAVEL ATRIBUICAO id ((operador id)+)? TERMINAL  
-          |  expressao_condicional   
-          |  funcao_print
-          |  estrutura_repeticao  
-          |  definicao_funcao
-          |  chamada_funcao   
+expressao    
+          : expressao_condicional   
+          | funcao_print
+          | estrutura_repeticao  
+          | definicao_funcao
+          | chamada_funcao   
+          | expressao_simples
+          | atribuicao
           ;
+
+expressao_simples 
+                  : id (operador id)+ TERMINAL
+                  ;
+
+atribuicao 
+           : VARIAVEL ATRIBUICAO id ((operador id)+)? TERMINAL
+           ;
+             
 
 definicao_funcao: DEF_FUNCAO LPAR parametros_formal RPAR LCOL bloco RCOL;
 
@@ -43,7 +53,7 @@ estrutura_repeticao : WHILE  LPAR condicao RPAR LCOL expressao+ RCOL ;
 
 id : VARIAVEL
    | valor
-  ;
+   ;
 
 condicao : (VARIAVEL operadorcomparacao valor)
          ;
@@ -57,7 +67,6 @@ operadorcomparacao : IGUAL
                    | MAIORIGUAL
                    ;
 
-
 operador : SOMA
          | SUB
          | DIV
@@ -70,11 +79,12 @@ tipagem : TipoInteger
         | TipoBoolean
         ;  
 
-valor : INT 
-     |  STRING
-     |  FLOAT 
-     |  BOOLEAN  
-     ; 
+valor 
+      : INT 
+      |  STRING
+      |  FLOAT 
+      |  BOOLEAN  
+      ; 
     
     
 TipoInteger : 'Integer';

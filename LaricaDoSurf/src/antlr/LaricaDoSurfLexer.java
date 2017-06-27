@@ -2,10 +2,7 @@
 
 package antlr;
 
-import ast.Tipagem;
-import ast.Valor;
-import ast.Operador;
-import ast.OperadorComparacao;
+import ast.*;
 
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;

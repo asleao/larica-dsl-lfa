@@ -2,6 +2,7 @@ Integer y1 larica 10 ;
 Integer y2 larica 10 ;
 Integer y3;
 
+y1 larica y2;
 
 dropa(y1==10)[
   aloha(y1);

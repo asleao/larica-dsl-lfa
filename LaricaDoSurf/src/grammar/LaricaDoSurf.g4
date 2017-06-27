@@ -3,10 +3,7 @@ grammar LaricaDoSurf;
 @header {
 package antlr;
 
-import ast.Tipagem;
-import ast.Valor;
-import ast.Operador;
-import ast.OperadorComparacao;
+import ast.*;
 }
 
 prog : bloco;
@@ -19,15 +16,24 @@ definicao :  (tipagem VARIAVEL (ATRIBUICAO id)? TERMINAL)
           ;
  
 
-expressao :  id operador id ((operador id)+)? TERMINAL
-          |  VARIAVEL ATRIBUICAO id ((operador id)+)? TERMINAL  
-          |  expressao_condicional   
-          |  funcao_print
-          |  estrutura_repeticao  
-          |  definicao_funcao
-          |  chamada_funcao   
+expressao    
+          : expressao_condicional   
+          | funcao_print
+          | estrutura_repeticao  
+          | definicao_funcao
+          | chamada_funcao   
+          | expressao_simples
+          | atribuicao
           ;
 
+expressao_simples 
+                  : id (operador id)+ TERMINAL
+                  ;
+
+atribuicao 
+           : VARIAVEL ATRIBUICAO id ((operador id)+)? TERMINAL
+           ;
+             
 definicao_funcao: DEF_FUNCAO LPAR parametros_formal RPAR LCOL bloco RCOL;
 
 chamada_funcao: NOME_FUNCAO LPAR parametros_real RPAR TERMINAL;
@@ -43,11 +49,13 @@ expressao_condicional :  IF LPAR condicao RPAR LCOL expressao+ RCOL (ELSE LCOL e
 
 estrutura_repeticao : WHILE  LPAR condicao RPAR LCOL expressao+ RCOL ;
 
-id : VARIAVEL
-   | valor
-  ;
+id returns [Id result]
+   : VARIAVEL {$result=new Id ($VARIAVEL.text);}
+   | valor {$result=new Id ($valor.result);}
+   ;
 
-condicao : (VARIAVEL operadorcomparacao valor)
+condicao returns [Condicao result]
+         : (var =VARIAVEL opc=operadorcomparacao val= valor){$result =  new Condicao($var.text, $opc.result, $val.result);}
          ;
 
 

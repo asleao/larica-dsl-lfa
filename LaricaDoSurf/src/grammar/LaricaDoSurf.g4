@@ -34,20 +34,27 @@ atribuicao
            : VARIAVEL ATRIBUICAO id ((operador id)+)? TERMINAL
            ;
              
-definicao_funcao: DEF_FUNCAO LPAR parametros_formal RPAR LCOL bloco RCOL;
+definicao_funcao
+                 : DEF_FUNCAO LPAR parametros_formal RPAR LCOL bloco RCOL;
 
-chamada_funcao: NOME_FUNCAO LPAR parametros_real RPAR TERMINAL;
+chamada_funcao
+               : NOME_FUNCAO LPAR parametros_real RPAR TERMINAL;
 
+parametros_formal
+                  : tipagem VARIAVEL (VIRGULA tipagem VARIAVEL)*;
 
-parametros_formal: tipagem VARIAVEL (VIRGULA tipagem VARIAVEL)*;
-parametros_real:  id (VIRGULA  id)*;
+parametros_real
+                :  id (VIRGULA  id)*;
 
-funcao_print:  PRINT LPAR id RPAR TERMINAL  
-            ;
+funcao_print returns [FuncaoPrint result]
+             :  PRINT LPAR i=id RPAR TERMINAL {$result = new FuncaoPrint($i.result);}  
+             ;
                 
-expressao_condicional :  IF LPAR condicao RPAR LCOL expressao+ RCOL (ELSE LCOL expressao+ RCOL)?;
+expressao_condicional 
+                      :  IF LPAR condicao RPAR LCOL expressao+ RCOL (ELSE LCOL expressao+ RCOL)?;
 
-estrutura_repeticao : WHILE  LPAR condicao RPAR LCOL expressao+ RCOL ;
+estrutura_repeticao 
+                   : WHILE  LPAR condicao RPAR LCOL expressao+ RCOL ;
 
 id returns [Id result]
    : VARIAVEL {$result=new Id ($VARIAVEL.text);}

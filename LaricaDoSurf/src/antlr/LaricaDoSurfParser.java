@@ -1,4 +1,4 @@
-// Generated from /home/edson/Documentos/git/larica-dsl-lfa/LaricaDoSurf/src/grammar/LaricaDoSurf.g4 by ANTLR 4.1
+// Generated from /home/asleao/Projetos/larica-dsl-lfa/LaricaDoSurf/src/grammar/LaricaDoSurf.g4 by ANTLR 4.1
 
 package antlr;
 
@@ -157,6 +157,11 @@ public class LaricaDoSurfParser extends Parser {
 	}
 
 	public static class DefinicaoContext extends ParserRuleContext {
+		public Definicao result;
+		public TipagemContext t;
+		public Token var;
+		public IdContext value;
+		public IdContext id;
 		public TerminalNode ATRIBUICAO() { return getToken(LaricaDoSurfParser.ATRIBUICAO, 0); }
 		public IdContext id() {
 			return getRuleContext(IdContext.class,0);
@@ -164,8 +169,8 @@ public class LaricaDoSurfParser extends Parser {
 		public TipagemContext tipagem() {
 			return getRuleContext(TipagemContext.class,0);
 		}
-		public TerminalNode VARIAVEL() { return getToken(LaricaDoSurfParser.VARIAVEL, 0); }
 		public TerminalNode TERMINAL() { return getToken(LaricaDoSurfParser.TERMINAL, 0); }
+		public TerminalNode VARIAVEL() { return getToken(LaricaDoSurfParser.VARIAVEL, 0); }
 		public DefinicaoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -175,24 +180,34 @@ public class LaricaDoSurfParser extends Parser {
 	public final DefinicaoContext definicao() throws RecognitionException {
 		DefinicaoContext _localctx = new DefinicaoContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_definicao);
-		int _la;
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			{
-			setState(51); tipagem();
-			setState(52); match(VARIAVEL);
-			setState(55);
-			_la = _input.LA(1);
-			if (_la==ATRIBUICAO) {
+			setState(65);
+			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
 				{
-				setState(53); match(ATRIBUICAO);
-				setState(54); id();
+				{
+				setState(51); ((DefinicaoContext)_localctx).t = tipagem();
+				setState(52); ((DefinicaoContext)_localctx).var = match(VARIAVEL);
+				setState(53); match(TERMINAL);
 				}
-			}
+				((DefinicaoContext)_localctx).result =  new Definicao(((DefinicaoContext)_localctx).t.result,(((DefinicaoContext)_localctx).var!=null?((DefinicaoContext)_localctx).var.getText():null));
+				}
+				break;
 
-			setState(57); match(TERMINAL);
-			}
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				{
+				setState(57); ((DefinicaoContext)_localctx).t = tipagem();
+				setState(58); ((DefinicaoContext)_localctx).var = match(VARIAVEL);
+				setState(59); match(ATRIBUICAO);
+				setState(60); ((DefinicaoContext)_localctx).value = ((DefinicaoContext)_localctx).id = id();
+				setState(61); match(TERMINAL);
+				}
+				((DefinicaoContext)_localctx).result =  new Definicao(((DefinicaoContext)_localctx).t.result,(((DefinicaoContext)_localctx).var!=null?((DefinicaoContext)_localctx).var.getText():null),((DefinicaoContext)_localctx).id.result);
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -238,54 +253,54 @@ public class LaricaDoSurfParser extends Parser {
 		ExpressaoContext _localctx = new ExpressaoContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_expressao);
 		try {
-			setState(66);
+			setState(74);
 			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(59); expressao_condicional();
+				setState(67); expressao_condicional();
 				}
 				break;
 
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(60); funcao_print();
+				setState(68); funcao_print();
 				}
 				break;
 
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(61); estrutura_repeticao();
+				setState(69); estrutura_repeticao();
 				}
 				break;
 
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(62); definicao_funcao();
+				setState(70); definicao_funcao();
 				}
 				break;
 
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(63); chamada_funcao();
+				setState(71); chamada_funcao();
 				}
 				break;
 
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(64); expressao_simples();
+				setState(72); expressao_simples();
 				}
 				break;
 
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(65); atribuicao();
+				setState(73); atribuicao();
 				}
 				break;
 			}
@@ -328,22 +343,22 @@ public class LaricaDoSurfParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(68); id();
-			setState(72); 
+			setState(76); id();
+			setState(80); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(69); operador();
-				setState(70); id();
+				setState(77); operador();
+				setState(78); id();
 				}
 				}
-				setState(74); 
+				setState(82); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << SOMA) | (1L << SUB) | (1L << DIV) | (1L << MULT))) != 0) );
-			setState(76); match(TERMINAL);
+			setState(84); match(TERMINAL);
 			}
 		}
 		catch (RecognitionException re) {
@@ -386,31 +401,31 @@ public class LaricaDoSurfParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(78); match(VARIAVEL);
-			setState(79); match(ATRIBUICAO);
-			setState(80); id();
-			setState(88);
+			setState(86); match(VARIAVEL);
+			setState(87); match(ATRIBUICAO);
+			setState(88); id();
+			setState(96);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << SOMA) | (1L << SUB) | (1L << DIV) | (1L << MULT))) != 0)) {
 				{
-				setState(84); 
+				setState(92); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(81); operador();
-					setState(82); id();
+					setState(89); operador();
+					setState(90); id();
 					}
 					}
-					setState(86); 
+					setState(94); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << SOMA) | (1L << SUB) | (1L << DIV) | (1L << MULT))) != 0) );
 				}
 			}
 
-			setState(90); match(TERMINAL);
+			setState(98); match(TERMINAL);
 			}
 		}
 		catch (RecognitionException re) {
@@ -448,13 +463,13 @@ public class LaricaDoSurfParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(92); match(DEF_FUNCAO);
-			setState(93); match(LPAR);
-			setState(94); parametros_formal();
-			setState(95); match(RPAR);
-			setState(96); match(LCOL);
-			setState(97); bloco();
-			setState(98); match(RCOL);
+			setState(100); match(DEF_FUNCAO);
+			setState(101); match(LPAR);
+			setState(102); parametros_formal();
+			setState(103); match(RPAR);
+			setState(104); match(LCOL);
+			setState(105); bloco();
+			setState(106); match(RCOL);
 			}
 		}
 		catch (RecognitionException re) {
@@ -488,11 +503,11 @@ public class LaricaDoSurfParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(100); match(NOME_FUNCAO);
-			setState(101); match(LPAR);
-			setState(102); parametros_real();
-			setState(103); match(RPAR);
-			setState(104); match(TERMINAL);
+			setState(108); match(NOME_FUNCAO);
+			setState(109); match(LPAR);
+			setState(110); parametros_real();
+			setState(111); match(RPAR);
+			setState(112); match(TERMINAL);
 			}
 		}
 		catch (RecognitionException re) {
@@ -534,20 +549,20 @@ public class LaricaDoSurfParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(106); tipagem();
-			setState(107); match(VARIAVEL);
-			setState(114);
+			setState(114); tipagem();
+			setState(115); match(VARIAVEL);
+			setState(122);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==VIRGULA) {
 				{
 				{
-				setState(108); match(VIRGULA);
-				setState(109); tipagem();
-				setState(110); match(VARIAVEL);
+				setState(116); match(VIRGULA);
+				setState(117); tipagem();
+				setState(118); match(VARIAVEL);
 				}
 				}
-				setState(116);
+				setState(124);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -588,18 +603,18 @@ public class LaricaDoSurfParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(117); id();
-			setState(122);
+			setState(125); id();
+			setState(130);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==VIRGULA) {
 				{
 				{
-				setState(118); match(VIRGULA);
-				setState(119); id();
+				setState(126); match(VIRGULA);
+				setState(127); id();
 				}
 				}
-				setState(124);
+				setState(132);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -638,11 +653,11 @@ public class LaricaDoSurfParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(125); match(PRINT);
-			setState(126); match(LPAR);
-			setState(127); ((Funcao_printContext)_localctx).i = id();
-			setState(128); match(RPAR);
-			setState(129); match(TERMINAL);
+			setState(133); match(PRINT);
+			setState(134); match(LPAR);
+			setState(135); ((Funcao_printContext)_localctx).i = id();
+			setState(136); match(RPAR);
+			setState(137); match(TERMINAL);
 			((Funcao_printContext)_localctx).result =  new FuncaoPrint(((Funcao_printContext)_localctx).i.result);
 			}
 		}
@@ -692,45 +707,45 @@ public class LaricaDoSurfParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(132); match(IF);
-			setState(133); match(LPAR);
-			setState(134); condicao();
-			setState(135); match(RPAR);
-			setState(136); match(LCOL);
-			setState(138); 
+			setState(140); match(IF);
+			setState(141); match(LPAR);
+			setState(142); condicao();
+			setState(143); match(RPAR);
+			setState(144); match(LCOL);
+			setState(146); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(137); expressao();
+				setState(145); expressao();
 				}
 				}
-				setState(140); 
+				setState(148); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << BOOLEAN) | (1L << IF) | (1L << WHILE) | (1L << PRINT) | (1L << VARIAVEL) | (1L << STRING) | (1L << DEF_FUNCAO) | (1L << NOME_FUNCAO))) != 0) );
-			setState(142); match(RCOL);
-			setState(152);
+			setState(150); match(RCOL);
+			setState(160);
 			_la = _input.LA(1);
 			if (_la==ELSE) {
 				{
-				setState(143); match(ELSE);
-				setState(144); match(LCOL);
-				setState(146); 
+				setState(151); match(ELSE);
+				setState(152); match(LCOL);
+				setState(154); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(145); expressao();
+					setState(153); expressao();
 					}
 					}
-					setState(148); 
+					setState(156); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << BOOLEAN) | (1L << IF) | (1L << WHILE) | (1L << PRINT) | (1L << VARIAVEL) | (1L << STRING) | (1L << DEF_FUNCAO) | (1L << NOME_FUNCAO))) != 0) );
-				setState(150); match(RCOL);
+				setState(158); match(RCOL);
 				}
 			}
 
@@ -775,25 +790,25 @@ public class LaricaDoSurfParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(154); match(WHILE);
-			setState(155); match(LPAR);
-			setState(156); condicao();
-			setState(157); match(RPAR);
-			setState(158); match(LCOL);
-			setState(160); 
+			setState(162); match(WHILE);
+			setState(163); match(LPAR);
+			setState(164); condicao();
+			setState(165); match(RPAR);
+			setState(166); match(LCOL);
+			setState(168); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(159); expressao();
+				setState(167); expressao();
 				}
 				}
-				setState(162); 
+				setState(170); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << BOOLEAN) | (1L << IF) | (1L << WHILE) | (1L << PRINT) | (1L << VARIAVEL) | (1L << STRING) | (1L << DEF_FUNCAO) | (1L << NOME_FUNCAO))) != 0) );
-			setState(164); match(RCOL);
+			setState(172); match(RCOL);
 			}
 		}
 		catch (RecognitionException re) {
@@ -825,12 +840,12 @@ public class LaricaDoSurfParser extends Parser {
 		IdContext _localctx = new IdContext(_ctx, getState());
 		enterRule(_localctx, 26, RULE_id);
 		try {
-			setState(171);
+			setState(179);
 			switch (_input.LA(1)) {
 			case VARIAVEL:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(166); ((IdContext)_localctx).VARIAVEL = match(VARIAVEL);
+				setState(174); ((IdContext)_localctx).VARIAVEL = match(VARIAVEL);
 				((IdContext)_localctx).result = new Id ((((IdContext)_localctx).VARIAVEL!=null?((IdContext)_localctx).VARIAVEL.getText():null));
 				}
 				break;
@@ -840,7 +855,7 @@ public class LaricaDoSurfParser extends Parser {
 			case STRING:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(168); ((IdContext)_localctx).valor = valor();
+				setState(176); ((IdContext)_localctx).valor = valor();
 				((IdContext)_localctx).result = new Id (((IdContext)_localctx).valor.result);
 				}
 				break;
@@ -884,9 +899,9 @@ public class LaricaDoSurfParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(173); ((CondicaoContext)_localctx).var = match(VARIAVEL);
-			setState(174); ((CondicaoContext)_localctx).opc = operadorcomparacao();
-			setState(175); ((CondicaoContext)_localctx).val = valor();
+			setState(181); ((CondicaoContext)_localctx).var = match(VARIAVEL);
+			setState(182); ((CondicaoContext)_localctx).opc = operadorcomparacao();
+			setState(183); ((CondicaoContext)_localctx).val = valor();
 			}
 			((CondicaoContext)_localctx).result =   new Condicao((((CondicaoContext)_localctx).var!=null?((CondicaoContext)_localctx).var.getText():null), ((CondicaoContext)_localctx).opc.result, ((CondicaoContext)_localctx).val.result);
 			}
@@ -926,47 +941,47 @@ public class LaricaDoSurfParser extends Parser {
 		OperadorcomparacaoContext _localctx = new OperadorcomparacaoContext(_ctx, getState());
 		enterRule(_localctx, 30, RULE_operadorcomparacao);
 		try {
-			setState(191);
+			setState(199);
 			switch (_input.LA(1)) {
 			case IGUAL:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(179); ((OperadorcomparacaoContext)_localctx).i = match(IGUAL);
+				setState(187); ((OperadorcomparacaoContext)_localctx).i = match(IGUAL);
 				((OperadorcomparacaoContext)_localctx).result =  new OperadorComparacao((((OperadorcomparacaoContext)_localctx).i!=null?((OperadorcomparacaoContext)_localctx).i.getText():null));
 				}
 				break;
 			case DIFERENTE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(181); ((OperadorcomparacaoContext)_localctx).d = match(DIFERENTE);
+				setState(189); ((OperadorcomparacaoContext)_localctx).d = match(DIFERENTE);
 				((OperadorcomparacaoContext)_localctx).result =  new OperadorComparacao((((OperadorcomparacaoContext)_localctx).d!=null?((OperadorcomparacaoContext)_localctx).d.getText():null));
 				}
 				break;
 			case MAIOR:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(183); ((OperadorcomparacaoContext)_localctx).maior = match(MAIOR);
+				setState(191); ((OperadorcomparacaoContext)_localctx).maior = match(MAIOR);
 				((OperadorcomparacaoContext)_localctx).result =  new OperadorComparacao((((OperadorcomparacaoContext)_localctx).maior!=null?((OperadorcomparacaoContext)_localctx).maior.getText():null));
 				}
 				break;
 			case MENOR:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(185); ((OperadorcomparacaoContext)_localctx).menor = match(MENOR);
+				setState(193); ((OperadorcomparacaoContext)_localctx).menor = match(MENOR);
 				((OperadorcomparacaoContext)_localctx).result =  new OperadorComparacao((((OperadorcomparacaoContext)_localctx).menor!=null?((OperadorcomparacaoContext)_localctx).menor.getText():null));
 				}
 				break;
 			case MENORIGUAL:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(187); ((OperadorcomparacaoContext)_localctx).menorIgual = match(MENORIGUAL);
+				setState(195); ((OperadorcomparacaoContext)_localctx).menorIgual = match(MENORIGUAL);
 				((OperadorcomparacaoContext)_localctx).result =  new OperadorComparacao((((OperadorcomparacaoContext)_localctx).menorIgual!=null?((OperadorcomparacaoContext)_localctx).menorIgual.getText():null));
 				}
 				break;
 			case MAIORIGUAL:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(189); ((OperadorcomparacaoContext)_localctx).maiorIgual = match(MAIORIGUAL);
+				setState(197); ((OperadorcomparacaoContext)_localctx).maiorIgual = match(MAIORIGUAL);
 				((OperadorcomparacaoContext)_localctx).result =  new OperadorComparacao((((OperadorcomparacaoContext)_localctx).maiorIgual!=null?((OperadorcomparacaoContext)_localctx).maiorIgual.getText():null));
 				}
 				break;
@@ -1005,33 +1020,33 @@ public class LaricaDoSurfParser extends Parser {
 		OperadorContext _localctx = new OperadorContext(_ctx, getState());
 		enterRule(_localctx, 32, RULE_operador);
 		try {
-			setState(201);
+			setState(209);
 			switch (_input.LA(1)) {
 			case SOMA:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(193); ((OperadorContext)_localctx).s = match(SOMA);
+				setState(201); ((OperadorContext)_localctx).s = match(SOMA);
 				((OperadorContext)_localctx).result =  new Operador((((OperadorContext)_localctx).s!=null?((OperadorContext)_localctx).s.getText():null));
 				}
 				break;
 			case SUB:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(195); ((OperadorContext)_localctx).sub = match(SUB);
+				setState(203); ((OperadorContext)_localctx).sub = match(SUB);
 				((OperadorContext)_localctx).result =  new Operador((((OperadorContext)_localctx).sub!=null?((OperadorContext)_localctx).sub.getText():null));
 				}
 				break;
 			case DIV:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(197); ((OperadorContext)_localctx).d = match(DIV);
+				setState(205); ((OperadorContext)_localctx).d = match(DIV);
 				((OperadorContext)_localctx).result =  new Operador((((OperadorContext)_localctx).d!=null?((OperadorContext)_localctx).d.getText():null));
 				}
 				break;
 			case MULT:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(199); ((OperadorContext)_localctx).m = match(MULT);
+				setState(207); ((OperadorContext)_localctx).m = match(MULT);
 				((OperadorContext)_localctx).result =  new Operador((((OperadorContext)_localctx).m!=null?((OperadorContext)_localctx).m.getText():null));
 				}
 				break;
@@ -1070,33 +1085,33 @@ public class LaricaDoSurfParser extends Parser {
 		TipagemContext _localctx = new TipagemContext(_ctx, getState());
 		enterRule(_localctx, 34, RULE_tipagem);
 		try {
-			setState(211);
+			setState(219);
 			switch (_input.LA(1)) {
 			case TipoInteger:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(203); ((TipagemContext)_localctx).tipo_integer = match(TipoInteger);
+				setState(211); ((TipagemContext)_localctx).tipo_integer = match(TipoInteger);
 				((TipagemContext)_localctx).result =  new Tipagem((((TipagemContext)_localctx).tipo_integer!=null?((TipagemContext)_localctx).tipo_integer.getText():null));
 				}
 				break;
 			case TipoString:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(205); ((TipagemContext)_localctx).tipo_string = match(TipoString);
+				setState(213); ((TipagemContext)_localctx).tipo_string = match(TipoString);
 				((TipagemContext)_localctx).result =  new Tipagem((((TipagemContext)_localctx).tipo_string!=null?((TipagemContext)_localctx).tipo_string.getText():null));
 				}
 				break;
 			case TipoFloat:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(207); ((TipagemContext)_localctx).tipo_float = match(TipoFloat);
+				setState(215); ((TipagemContext)_localctx).tipo_float = match(TipoFloat);
 				((TipagemContext)_localctx).result =  new Tipagem((((TipagemContext)_localctx).tipo_float!=null?((TipagemContext)_localctx).tipo_float.getText():null));
 				}
 				break;
 			case TipoBoolean:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(209); ((TipagemContext)_localctx).tipo_boolean = match(TipoBoolean);
+				setState(217); ((TipagemContext)_localctx).tipo_boolean = match(TipoBoolean);
 				((TipagemContext)_localctx).result =  new Tipagem((((TipagemContext)_localctx).tipo_boolean!=null?((TipagemContext)_localctx).tipo_boolean.getText():null));
 				}
 				break;
@@ -1135,33 +1150,33 @@ public class LaricaDoSurfParser extends Parser {
 		ValorContext _localctx = new ValorContext(_ctx, getState());
 		enterRule(_localctx, 36, RULE_valor);
 		try {
-			setState(221);
+			setState(229);
 			switch (_input.LA(1)) {
 			case INT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(213); ((ValorContext)_localctx).i = match(INT);
+				setState(221); ((ValorContext)_localctx).i = match(INT);
 				((ValorContext)_localctx).result =  new Valor(Integer.parseInt((((ValorContext)_localctx).i!=null?((ValorContext)_localctx).i.getText():null)));
 				}
 				break;
 			case STRING:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(215); ((ValorContext)_localctx).s = match(STRING);
+				setState(223); ((ValorContext)_localctx).s = match(STRING);
 				((ValorContext)_localctx).result =  new Valor((((ValorContext)_localctx).s!=null?((ValorContext)_localctx).s.getText():null));
 				}
 				break;
 			case FLOAT:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(217); ((ValorContext)_localctx).f = match(FLOAT);
+				setState(225); ((ValorContext)_localctx).f = match(FLOAT);
 				((ValorContext)_localctx).result =  new Valor(Float.parseFloat((((ValorContext)_localctx).f!=null?((ValorContext)_localctx).f.getText():null)));
 				}
 				break;
 			case BOOLEAN:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(219); ((ValorContext)_localctx).b = match(BOOLEAN);
+				setState(227); ((ValorContext)_localctx).b = match(BOOLEAN);
 				((ValorContext)_localctx).result =  new Valor(Boolean.parseBoolean((((ValorContext)_localctx).b!=null?((ValorContext)_localctx).b.getText():null)));
 				}
 				break;
@@ -1181,78 +1196,81 @@ public class LaricaDoSurfParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3$\u00e2\4\2\t\2\4"+
+		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3$\u00ea\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\3\2\3\2\3\3\6\3,\n\3\r\3\16\3-\3\3\7\3\61\n\3\f\3"+
-		"\16\3\64\13\3\3\4\3\4\3\4\3\4\5\4:\n\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5"+
-		"\3\5\5\5E\n\5\3\6\3\6\3\6\3\6\6\6K\n\6\r\6\16\6L\3\6\3\6\3\7\3\7\3\7\3"+
-		"\7\3\7\3\7\6\7W\n\7\r\7\16\7X\5\7[\n\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b"+
-		"\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\7\ns\n\n\f\n"+
-		"\16\nv\13\n\3\13\3\13\3\13\7\13{\n\13\f\13\16\13~\13\13\3\f\3\f\3\f\3"+
-		"\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\r\6\r\u008d\n\r\r\r\16\r\u008e\3"+
-		"\r\3\r\3\r\3\r\6\r\u0095\n\r\r\r\16\r\u0096\3\r\3\r\5\r\u009b\n\r\3\16"+
-		"\3\16\3\16\3\16\3\16\3\16\6\16\u00a3\n\16\r\16\16\16\u00a4\3\16\3\16\3"+
-		"\17\3\17\3\17\3\17\3\17\5\17\u00ae\n\17\3\20\3\20\3\20\3\20\3\20\3\20"+
-		"\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\5\21\u00c2"+
-		"\n\21\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\5\22\u00cc\n\22\3\23\3\23"+
-		"\3\23\3\23\3\23\3\23\3\23\3\23\5\23\u00d6\n\23\3\24\3\24\3\24\3\24\3\24"+
-		"\3\24\3\24\3\24\5\24\u00e0\n\24\3\24\2\25\2\4\6\b\n\f\16\20\22\24\26\30"+
-		"\32\34\36 \"$&\2\2\u00ef\2(\3\2\2\2\4+\3\2\2\2\6\65\3\2\2\2\bD\3\2\2\2"+
-		"\nF\3\2\2\2\fP\3\2\2\2\16^\3\2\2\2\20f\3\2\2\2\22l\3\2\2\2\24w\3\2\2\2"+
-		"\26\177\3\2\2\2\30\u0086\3\2\2\2\32\u009c\3\2\2\2\34\u00ad\3\2\2\2\36"+
-		"\u00af\3\2\2\2 \u00c1\3\2\2\2\"\u00cb\3\2\2\2$\u00d5\3\2\2\2&\u00df\3"+
-		"\2\2\2()\5\4\3\2)\3\3\2\2\2*,\5\6\4\2+*\3\2\2\2,-\3\2\2\2-+\3\2\2\2-."+
-		"\3\2\2\2.\62\3\2\2\2/\61\5\b\5\2\60/\3\2\2\2\61\64\3\2\2\2\62\60\3\2\2"+
-		"\2\62\63\3\2\2\2\63\5\3\2\2\2\64\62\3\2\2\2\65\66\5$\23\2\669\7\37\2\2"+
-		"\678\7\n\2\28:\5\34\17\29\67\3\2\2\29:\3\2\2\2:;\3\2\2\2;<\7\21\2\2<\7"+
-		"\3\2\2\2=E\5\30\r\2>E\5\26\f\2?E\5\32\16\2@E\5\16\b\2AE\5\20\t\2BE\5\n"+
-		"\6\2CE\5\f\7\2D=\3\2\2\2D>\3\2\2\2D?\3\2\2\2D@\3\2\2\2DA\3\2\2\2DB\3\2"+
-		"\2\2DC\3\2\2\2E\t\3\2\2\2FJ\5\34\17\2GH\5\"\22\2HI\5\34\17\2IK\3\2\2\2"+
-		"JG\3\2\2\2KL\3\2\2\2LJ\3\2\2\2LM\3\2\2\2MN\3\2\2\2NO\7\21\2\2O\13\3\2"+
-		"\2\2PQ\7\37\2\2QR\7\n\2\2RZ\5\34\17\2ST\5\"\22\2TU\5\34\17\2UW\3\2\2\2"+
-		"VS\3\2\2\2WX\3\2\2\2XV\3\2\2\2XY\3\2\2\2Y[\3\2\2\2ZV\3\2\2\2Z[\3\2\2\2"+
-		"[\\\3\2\2\2\\]\7\21\2\2]\r\3\2\2\2^_\7!\2\2_`\7\22\2\2`a\5\22\n\2ab\7"+
-		"\23\2\2bc\7\24\2\2cd\5\4\3\2de\7\25\2\2e\17\3\2\2\2fg\7\"\2\2gh\7\22\2"+
-		"\2hi\5\24\13\2ij\7\23\2\2jk\7\21\2\2k\21\3\2\2\2lm\5$\23\2mt\7\37\2\2"+
-		"no\7#\2\2op\5$\23\2pq\7\37\2\2qs\3\2\2\2rn\3\2\2\2sv\3\2\2\2tr\3\2\2\2"+
-		"tu\3\2\2\2u\23\3\2\2\2vt\3\2\2\2w|\5\34\17\2xy\7#\2\2y{\5\34\17\2zx\3"+
-		"\2\2\2{~\3\2\2\2|z\3\2\2\2|}\3\2\2\2}\25\3\2\2\2~|\3\2\2\2\177\u0080\7"+
-		"\36\2\2\u0080\u0081\7\22\2\2\u0081\u0082\5\34\17\2\u0082\u0083\7\23\2"+
-		"\2\u0083\u0084\7\21\2\2\u0084\u0085\b\f\1\2\u0085\27\3\2\2\2\u0086\u0087"+
-		"\7\33\2\2\u0087\u0088\7\22\2\2\u0088\u0089\5\36\20\2\u0089\u008a\7\23"+
-		"\2\2\u008a\u008c\7\24\2\2\u008b\u008d\5\b\5\2\u008c\u008b\3\2\2\2\u008d"+
-		"\u008e\3\2\2\2\u008e\u008c\3\2\2\2\u008e\u008f\3\2\2\2\u008f\u0090\3\2"+
-		"\2\2\u0090\u009a\7\25\2\2\u0091\u0092\7\34\2\2\u0092\u0094\7\24\2\2\u0093"+
-		"\u0095\5\b\5\2\u0094\u0093\3\2\2\2\u0095\u0096\3\2\2\2\u0096\u0094\3\2"+
-		"\2\2\u0096\u0097\3\2\2\2\u0097\u0098\3\2\2\2\u0098\u0099\7\25\2\2\u0099"+
-		"\u009b\3\2\2\2\u009a\u0091\3\2\2\2\u009a\u009b\3\2\2\2\u009b\31\3\2\2"+
-		"\2\u009c\u009d\7\35\2\2\u009d\u009e\7\22\2\2\u009e\u009f\5\36\20\2\u009f"+
-		"\u00a0\7\23\2\2\u00a0\u00a2\7\24\2\2\u00a1\u00a3\5\b\5\2\u00a2\u00a1\3"+
-		"\2\2\2\u00a3\u00a4\3\2\2\2\u00a4\u00a2\3\2\2\2\u00a4\u00a5\3\2\2\2\u00a5"+
-		"\u00a6\3\2\2\2\u00a6\u00a7\7\25\2\2\u00a7\33\3\2\2\2\u00a8\u00a9\7\37"+
-		"\2\2\u00a9\u00ae\b\17\1\2\u00aa\u00ab\5&\24\2\u00ab\u00ac\b\17\1\2\u00ac"+
-		"\u00ae\3\2\2\2\u00ad\u00a8\3\2\2\2\u00ad\u00aa\3\2\2\2\u00ae\35\3\2\2"+
-		"\2\u00af\u00b0\7\37\2\2\u00b0\u00b1\5 \21\2\u00b1\u00b2\5&\24\2\u00b2"+
-		"\u00b3\3\2\2\2\u00b3\u00b4\b\20\1\2\u00b4\37\3\2\2\2\u00b5\u00b6\7\13"+
-		"\2\2\u00b6\u00c2\b\21\1\2\u00b7\u00b8\7\16\2\2\u00b8\u00c2\b\21\1\2\u00b9"+
-		"\u00ba\7\17\2\2\u00ba\u00c2\b\21\1\2\u00bb\u00bc\7\20\2\2\u00bc\u00c2"+
-		"\b\21\1\2\u00bd\u00be\7\f\2\2\u00be\u00c2\b\21\1\2\u00bf\u00c0\7\r\2\2"+
-		"\u00c0\u00c2\b\21\1\2\u00c1\u00b5\3\2\2\2\u00c1\u00b7\3\2\2\2\u00c1\u00b9"+
-		"\3\2\2\2\u00c1\u00bb\3\2\2\2\u00c1\u00bd\3\2\2\2\u00c1\u00bf\3\2\2\2\u00c2"+
-		"!\3\2\2\2\u00c3\u00c4\7\26\2\2\u00c4\u00cc\b\22\1\2\u00c5\u00c6\7\27\2"+
-		"\2\u00c6\u00cc\b\22\1\2\u00c7\u00c8\7\30\2\2\u00c8\u00cc\b\22\1\2\u00c9"+
-		"\u00ca\7\31\2\2\u00ca\u00cc\b\22\1\2\u00cb\u00c3\3\2\2\2\u00cb\u00c5\3"+
-		"\2\2\2\u00cb\u00c7\3\2\2\2\u00cb\u00c9\3\2\2\2\u00cc#\3\2\2\2\u00cd\u00ce"+
-		"\7\3\2\2\u00ce\u00d6\b\23\1\2\u00cf\u00d0\7\4\2\2\u00d0\u00d6\b\23\1\2"+
-		"\u00d1\u00d2\7\5\2\2\u00d2\u00d6\b\23\1\2\u00d3\u00d4\7\6\2\2\u00d4\u00d6"+
-		"\b\23\1\2\u00d5\u00cd\3\2\2\2\u00d5\u00cf\3\2\2\2\u00d5\u00d1\3\2\2\2"+
-		"\u00d5\u00d3\3\2\2\2\u00d6%\3\2\2\2\u00d7\u00d8\7\7\2\2\u00d8\u00e0\b"+
-		"\24\1\2\u00d9\u00da\7 \2\2\u00da\u00e0\b\24\1\2\u00db\u00dc\7\b\2\2\u00dc"+
-		"\u00e0\b\24\1\2\u00dd\u00de\7\t\2\2\u00de\u00e0\b\24\1\2\u00df\u00d7\3"+
-		"\2\2\2\u00df\u00d9\3\2\2\2\u00df\u00db\3\2\2\2\u00df\u00dd\3\2\2\2\u00e0"+
-		"\'\3\2\2\2\24-\629DLXZt|\u008e\u0096\u009a\u00a4\u00ad\u00c1\u00cb\u00d5"+
-		"\u00df";
+		"\16\3\64\13\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
+		"\5\4D\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5M\n\5\3\6\3\6\3\6\3\6\6\6S\n"+
+		"\6\r\6\16\6T\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\6\7_\n\7\r\7\16\7`\5\7c\n"+
+		"\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\n"+
+		"\3\n\3\n\3\n\3\n\3\n\7\n{\n\n\f\n\16\n~\13\n\3\13\3\13\3\13\7\13\u0083"+
+		"\n\13\f\13\16\13\u0086\13\13\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3"+
+		"\r\3\r\3\r\6\r\u0095\n\r\r\r\16\r\u0096\3\r\3\r\3\r\3\r\6\r\u009d\n\r"+
+		"\r\r\16\r\u009e\3\r\3\r\5\r\u00a3\n\r\3\16\3\16\3\16\3\16\3\16\3\16\6"+
+		"\16\u00ab\n\16\r\16\16\16\u00ac\3\16\3\16\3\17\3\17\3\17\3\17\3\17\5\17"+
+		"\u00b6\n\17\3\20\3\20\3\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\21"+
+		"\3\21\3\21\3\21\3\21\3\21\3\21\5\21\u00ca\n\21\3\22\3\22\3\22\3\22\3\22"+
+		"\3\22\3\22\3\22\5\22\u00d4\n\22\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23"+
+		"\5\23\u00de\n\23\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\5\24\u00e8\n"+
+		"\24\3\24\2\25\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&\2\2\u00f7\2"+
+		"(\3\2\2\2\4+\3\2\2\2\6C\3\2\2\2\bL\3\2\2\2\nN\3\2\2\2\fX\3\2\2\2\16f\3"+
+		"\2\2\2\20n\3\2\2\2\22t\3\2\2\2\24\177\3\2\2\2\26\u0087\3\2\2\2\30\u008e"+
+		"\3\2\2\2\32\u00a4\3\2\2\2\34\u00b5\3\2\2\2\36\u00b7\3\2\2\2 \u00c9\3\2"+
+		"\2\2\"\u00d3\3\2\2\2$\u00dd\3\2\2\2&\u00e7\3\2\2\2()\5\4\3\2)\3\3\2\2"+
+		"\2*,\5\6\4\2+*\3\2\2\2,-\3\2\2\2-+\3\2\2\2-.\3\2\2\2.\62\3\2\2\2/\61\5"+
+		"\b\5\2\60/\3\2\2\2\61\64\3\2\2\2\62\60\3\2\2\2\62\63\3\2\2\2\63\5\3\2"+
+		"\2\2\64\62\3\2\2\2\65\66\5$\23\2\66\67\7\37\2\2\678\7\21\2\289\3\2\2\2"+
+		"9:\b\4\1\2:D\3\2\2\2;<\5$\23\2<=\7\37\2\2=>\7\n\2\2>?\5\34\17\2?@\7\21"+
+		"\2\2@A\3\2\2\2AB\b\4\1\2BD\3\2\2\2C\65\3\2\2\2C;\3\2\2\2D\7\3\2\2\2EM"+
+		"\5\30\r\2FM\5\26\f\2GM\5\32\16\2HM\5\16\b\2IM\5\20\t\2JM\5\n\6\2KM\5\f"+
+		"\7\2LE\3\2\2\2LF\3\2\2\2LG\3\2\2\2LH\3\2\2\2LI\3\2\2\2LJ\3\2\2\2LK\3\2"+
+		"\2\2M\t\3\2\2\2NR\5\34\17\2OP\5\"\22\2PQ\5\34\17\2QS\3\2\2\2RO\3\2\2\2"+
+		"ST\3\2\2\2TR\3\2\2\2TU\3\2\2\2UV\3\2\2\2VW\7\21\2\2W\13\3\2\2\2XY\7\37"+
+		"\2\2YZ\7\n\2\2Zb\5\34\17\2[\\\5\"\22\2\\]\5\34\17\2]_\3\2\2\2^[\3\2\2"+
+		"\2_`\3\2\2\2`^\3\2\2\2`a\3\2\2\2ac\3\2\2\2b^\3\2\2\2bc\3\2\2\2cd\3\2\2"+
+		"\2de\7\21\2\2e\r\3\2\2\2fg\7!\2\2gh\7\22\2\2hi\5\22\n\2ij\7\23\2\2jk\7"+
+		"\24\2\2kl\5\4\3\2lm\7\25\2\2m\17\3\2\2\2no\7\"\2\2op\7\22\2\2pq\5\24\13"+
+		"\2qr\7\23\2\2rs\7\21\2\2s\21\3\2\2\2tu\5$\23\2u|\7\37\2\2vw\7#\2\2wx\5"+
+		"$\23\2xy\7\37\2\2y{\3\2\2\2zv\3\2\2\2{~\3\2\2\2|z\3\2\2\2|}\3\2\2\2}\23"+
+		"\3\2\2\2~|\3\2\2\2\177\u0084\5\34\17\2\u0080\u0081\7#\2\2\u0081\u0083"+
+		"\5\34\17\2\u0082\u0080\3\2\2\2\u0083\u0086\3\2\2\2\u0084\u0082\3\2\2\2"+
+		"\u0084\u0085\3\2\2\2\u0085\25\3\2\2\2\u0086\u0084\3\2\2\2\u0087\u0088"+
+		"\7\36\2\2\u0088\u0089\7\22\2\2\u0089\u008a\5\34\17\2\u008a\u008b\7\23"+
+		"\2\2\u008b\u008c\7\21\2\2\u008c\u008d\b\f\1\2\u008d\27\3\2\2\2\u008e\u008f"+
+		"\7\33\2\2\u008f\u0090\7\22\2\2\u0090\u0091\5\36\20\2\u0091\u0092\7\23"+
+		"\2\2\u0092\u0094\7\24\2\2\u0093\u0095\5\b\5\2\u0094\u0093\3\2\2\2\u0095"+
+		"\u0096\3\2\2\2\u0096\u0094\3\2\2\2\u0096\u0097\3\2\2\2\u0097\u0098\3\2"+
+		"\2\2\u0098\u00a2\7\25\2\2\u0099\u009a\7\34\2\2\u009a\u009c\7\24\2\2\u009b"+
+		"\u009d\5\b\5\2\u009c\u009b\3\2\2\2\u009d\u009e\3\2\2\2\u009e\u009c\3\2"+
+		"\2\2\u009e\u009f\3\2\2\2\u009f\u00a0\3\2\2\2\u00a0\u00a1\7\25\2\2\u00a1"+
+		"\u00a3\3\2\2\2\u00a2\u0099\3\2\2\2\u00a2\u00a3\3\2\2\2\u00a3\31\3\2\2"+
+		"\2\u00a4\u00a5\7\35\2\2\u00a5\u00a6\7\22\2\2\u00a6\u00a7\5\36\20\2\u00a7"+
+		"\u00a8\7\23\2\2\u00a8\u00aa\7\24\2\2\u00a9\u00ab\5\b\5\2\u00aa\u00a9\3"+
+		"\2\2\2\u00ab\u00ac\3\2\2\2\u00ac\u00aa\3\2\2\2\u00ac\u00ad\3\2\2\2\u00ad"+
+		"\u00ae\3\2\2\2\u00ae\u00af\7\25\2\2\u00af\33\3\2\2\2\u00b0\u00b1\7\37"+
+		"\2\2\u00b1\u00b6\b\17\1\2\u00b2\u00b3\5&\24\2\u00b3\u00b4\b\17\1\2\u00b4"+
+		"\u00b6\3\2\2\2\u00b5\u00b0\3\2\2\2\u00b5\u00b2\3\2\2\2\u00b6\35\3\2\2"+
+		"\2\u00b7\u00b8\7\37\2\2\u00b8\u00b9\5 \21\2\u00b9\u00ba\5&\24\2\u00ba"+
+		"\u00bb\3\2\2\2\u00bb\u00bc\b\20\1\2\u00bc\37\3\2\2\2\u00bd\u00be\7\13"+
+		"\2\2\u00be\u00ca\b\21\1\2\u00bf\u00c0\7\16\2\2\u00c0\u00ca\b\21\1\2\u00c1"+
+		"\u00c2\7\17\2\2\u00c2\u00ca\b\21\1\2\u00c3\u00c4\7\20\2\2\u00c4\u00ca"+
+		"\b\21\1\2\u00c5\u00c6\7\f\2\2\u00c6\u00ca\b\21\1\2\u00c7\u00c8\7\r\2\2"+
+		"\u00c8\u00ca\b\21\1\2\u00c9\u00bd\3\2\2\2\u00c9\u00bf\3\2\2\2\u00c9\u00c1"+
+		"\3\2\2\2\u00c9\u00c3\3\2\2\2\u00c9\u00c5\3\2\2\2\u00c9\u00c7\3\2\2\2\u00ca"+
+		"!\3\2\2\2\u00cb\u00cc\7\26\2\2\u00cc\u00d4\b\22\1\2\u00cd\u00ce\7\27\2"+
+		"\2\u00ce\u00d4\b\22\1\2\u00cf\u00d0\7\30\2\2\u00d0\u00d4\b\22\1\2\u00d1"+
+		"\u00d2\7\31\2\2\u00d2\u00d4\b\22\1\2\u00d3\u00cb\3\2\2\2\u00d3\u00cd\3"+
+		"\2\2\2\u00d3\u00cf\3\2\2\2\u00d3\u00d1\3\2\2\2\u00d4#\3\2\2\2\u00d5\u00d6"+
+		"\7\3\2\2\u00d6\u00de\b\23\1\2\u00d7\u00d8\7\4\2\2\u00d8\u00de\b\23\1\2"+
+		"\u00d9\u00da\7\5\2\2\u00da\u00de\b\23\1\2\u00db\u00dc\7\6\2\2\u00dc\u00de"+
+		"\b\23\1\2\u00dd\u00d5\3\2\2\2\u00dd\u00d7\3\2\2\2\u00dd\u00d9\3\2\2\2"+
+		"\u00dd\u00db\3\2\2\2\u00de%\3\2\2\2\u00df\u00e0\7\7\2\2\u00e0\u00e8\b"+
+		"\24\1\2\u00e1\u00e2\7 \2\2\u00e2\u00e8\b\24\1\2\u00e3\u00e4\7\b\2\2\u00e4"+
+		"\u00e8\b\24\1\2\u00e5\u00e6\7\t\2\2\u00e6\u00e8\b\24\1\2\u00e7\u00df\3"+
+		"\2\2\2\u00e7\u00e1\3\2\2\2\u00e7\u00e3\3\2\2\2\u00e7\u00e5\3\2\2\2\u00e8"+
+		"\'\3\2\2\2\24-\62CLT`b|\u0084\u0096\u009e\u00a2\u00ac\u00b5\u00c9\u00d3"+
+		"\u00dd\u00e7";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {

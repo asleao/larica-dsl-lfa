@@ -12,7 +12,9 @@ prog : bloco;
 bloco : definicao+  expressao*
       ;
 
-definicao :  (tipagem VARIAVEL (ATRIBUICAO id)? TERMINAL)         
+definicao returns [Definicao result] 
+        :  (t = tipagem var=VARIAVEL TERMINAL) {$result = new Definicao($t.result,$var.text);} 
+        |  (t = tipagem var=VARIAVEL ATRIBUICAO value = id TERMINAL) {$result = new Definicao($t.result,$var.text,$id.result);}   
           ;
  
 

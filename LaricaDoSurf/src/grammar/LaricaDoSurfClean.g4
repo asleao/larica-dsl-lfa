@@ -13,7 +13,8 @@ prog : bloco;
 bloco : definicao+  expressao*
       ;
 
-definicao :  (tipagem VARIAVEL (ATRIBUICAO id)? TERMINAL)         
+definicao :  (tipagem VARIAVEL TERMINAL)         
+          |  (tipagem VARIAVEL (ATRIBUICAO id)? TERMINAL)    
    	;
 
 

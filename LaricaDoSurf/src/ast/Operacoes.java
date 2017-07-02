@@ -7,21 +7,20 @@ package ast;
 
 /**
  *
- * @author ana
+ * @author asleao
  */
-public class Operador {
-    
-    
-    private String op;
-    
-    public Operador(String op){
+public class Operacoes {
+    private Operador op;
+    private Id id;
+
+    public Operacoes(Operador op, Id id) {
         this.op = op;
+        this.id = id;
     }
-    
+
     @Override
     public String toString() {
-        return "Operador{" + "op=" + op + '}';
+        return "Operacoes{" + "op=" + op + ", id=" + id + '}';
     }
-    
     
 }

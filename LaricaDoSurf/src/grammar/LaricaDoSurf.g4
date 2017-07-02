@@ -28,8 +28,15 @@ expressao
           | atribuicao
           ;
 
-expressao_simples 
-                  : id (operador id)+ TERMINAL
+operacoes returns [Operacoes result]:op = operador v= id {$result = new Operacoes($op.result,$v.result);}
+                                    ;
+                                     
+
+expressao_simples returns [ExprSmp result]
+    @init {
+           ArrayList<Operacoes> sttList = new ArrayList<>();
+    }
+                  : i = id (op = operacoes{sttList.add($op.result);})+ TERMINAL {$result = new ExprSmp($i.result,sttList);} 
                   ;
 
 atribuicao 

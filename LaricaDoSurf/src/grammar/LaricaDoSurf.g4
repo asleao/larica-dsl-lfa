@@ -51,9 +51,19 @@ definicao_funcao
 chamada_funcao returns [ChamadaFuncao result]
                : n = NOME_FUNCAO LPAR p=parametros_real RPAR TERMINAL {$result = new ChamadaFuncao($n.text, $p.args);};
 
-parametros_formal
-                  : tipagem VARIAVEL (VIRGULA tipagem VARIAVEL)*;
 
+parametro_funcao returns [Definicao result]
+                : t = tipagem var = VARIAVEL {$result = new Definicao($t.result, $var.text);} 
+                ;
+
+parametros_formal returns [List<Definicao> args]
+@init {
+    $args = new LinkedList<Definicao>();
+}
+                  : (parametro_funcao {$args.add($parametro_funcao.result);}
+                    (VIRGULA parametro_funcao {$args.add($parametro_funcao.result);})*
+                    )?
+                  ;
 
 
 parametros_real returns [List<Id> args]

@@ -2,6 +2,7 @@
 
 package antlr;
 
+import java.util.LinkedList;
 import ast.*;
 
 import org.antlr.v4.runtime.Lexer;

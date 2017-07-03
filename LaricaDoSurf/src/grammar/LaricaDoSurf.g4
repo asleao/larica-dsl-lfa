@@ -53,8 +53,16 @@ chamada_funcao
 parametros_formal
                   : tipagem VARIAVEL (VIRGULA tipagem VARIAVEL)*;
 
-parametros_real
-                :  id (VIRGULA  id)*;
+
+
+parametros_real returns [List<Id> args]
+@init {
+    $args = new LinkedList<Id>();
+}
+                :  (id {$args.add($id.result);}
+                    ( VIRGULA id {$args.add($id.result);})*
+                   )?
+                ;
 
 funcao_print returns [FuncaoPrint result]
              :  PRINT LPAR i=id RPAR TERMINAL {$result = new FuncaoPrint($i.result);}  

@@ -25,7 +25,7 @@ expressao
           | definicao_funcao
           | chamada_funcao   
           | expressao_simples
-          | atribuicao
+          | atribuicao_valor
           ;
 
 operacoes returns [Operacoes result]:op = operador v= id {$result = new Operacoes($op.result,$v.result);}
@@ -39,8 +39,9 @@ expressao_simples returns [ExprSmp result]
                   : i = id (op = operacoes{sttList.add($op.result);})+ TERMINAL {$result = new ExprSmp($i.result,sttList);} 
                   ;
 
-atribuicao 
-           : VARIAVEL ATRIBUICAO id ((operador id)+)? TERMINAL
+atribuicao_valor returns [AtribuicaoValor result]
+           : var = VARIAVEL ATRIBUICAO val=id TERMINAL {$result = new AtribuicaoValor($var.text,$val.result);} 
+           | var = VARIAVEL ATRIBUICAO exp = expressao_simples {$result = new AtribuicaoValor($var.text,$exp.result);}  
            ;
              
 definicao_funcao

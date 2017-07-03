@@ -3,6 +3,7 @@ grammar LaricaDoSurf;
 @header {
 package antlr;
 
+import java.util.LinkedList;
 import ast.*;
 }
 
@@ -47,8 +48,8 @@ atribuicao_valor returns [AtribuicaoValor result]
 definicao_funcao
                  : DEF_FUNCAO LPAR parametros_formal RPAR LCOL bloco RCOL;
 
-chamada_funcao
-               : NOME_FUNCAO LPAR parametros_real RPAR TERMINAL;
+chamada_funcao returns [ChamadaFuncao result]
+               : n = NOME_FUNCAO LPAR p=parametros_real RPAR TERMINAL {$result = new ChamadaFuncao($n.text, $p.args);};
 
 parametros_formal
                   : tipagem VARIAVEL (VIRGULA tipagem VARIAVEL)*;

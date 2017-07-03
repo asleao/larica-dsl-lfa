@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Psicologia Judo
  */
-public class ChamadaFuncao {
+public class ChamadaFuncao extends Expr{
     
     private String nomeFunc;
     private List<Id> list;

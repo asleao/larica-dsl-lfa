@@ -7,11 +7,14 @@ import java.util.LinkedList;
 import ast.*;
 }
 
-prog : bloco;
+prog  
+    : bloco
+    ;
     
 
-bloco : definicao+  expressao*
-      ;
+bloco returns [Bloco result]
+    : def = definicao+  expr = expressao* {$result = new Bloco($definicao.result, $expressao.result);}
+    ;
 
 definicao returns [Definicao result] 
         :  (t = tipagem var=VARIAVEL TERMINAL) {$result = new Definicao($t.result,$var.text);} 
@@ -19,15 +22,16 @@ definicao returns [Definicao result]
           ;
  
 
-expressao    
+expressao returns [Expr result]
           : expressao_condicional   
-          | funcao_print
+          | p = funcao_print {$result = $p.result;}
           | estrutura_repeticao  
-          | definicao_funcao
-          | chamada_funcao   
-          | expressao_simples
-          | atribuicao_valor
+          | definicao_funcao 
+          | c = chamada_funcao {$result = $c.result;}
+          | e = expressao_simples {$result = $e.result;}
+          | a = atribuicao_valor  {$result = $a.result;}
           ;
+
 
 operacoes returns [Operacoes result]:op = operador v= id {$result = new Operacoes($op.result,$v.result);}
                                     ;

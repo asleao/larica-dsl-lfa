@@ -9,7 +9,7 @@ package ast;
  *
  * @author edson
  */
-public class FuncaoPrint {
+public class FuncaoPrint extends Expr {
     private Object id;
 
     public FuncaoPrint(Object id) {

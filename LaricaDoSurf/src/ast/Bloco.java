@@ -7,22 +7,21 @@ package ast;
 
 /**
  *
- * @author ana
+ * @author Psicologia Judo
  */
-public class OperadorComparacao extends Expr {
+public class Bloco {
     
+    private Definicao def;
+    private Expr expr;
     
-    private String opc;
-
-    public OperadorComparacao(String opc) {
-        this.opc = opc;
+    public Bloco(Definicao def, Expr expr){
+        this.def = def;
+        this.expr = expr;
     }
 
     @Override
     public String toString() {
-        return "OperadorComparacao{" + "opc=" + opc + '}';
+        return "Bloco{" + "def=" + def + ", expr=" + expr + '}';
     }
-    
-    
     
 }

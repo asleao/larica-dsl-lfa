@@ -9,7 +9,7 @@ package ast;
  *
  * @author asleao
  */
-public class AtribuicaoValor {
+public class AtribuicaoValor extends Expr {
     private String variavel;
     private Id valor;
     private ExprSmp expr;

@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author asleao
  */
-public class ExprSmp {
+public class ExprSmp extends Expr{
     private Id termo;
     private List<Operacoes> operacoes;
 

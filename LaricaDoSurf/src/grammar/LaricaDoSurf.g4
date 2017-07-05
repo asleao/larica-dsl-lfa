@@ -92,8 +92,12 @@ funcao_print returns [FuncaoPrint result]
 expressao_condicional 
                       :  IF LPAR condicao RPAR LCOL expressao+ RCOL (ELSE LCOL expressao+ RCOL)?;
 
-estrutura_repeticao 
-                   : WHILE  LPAR condicao RPAR LCOL expressao+ RCOL ;
+estrutura_repeticao returns [While result]
+    @init {
+           ArrayList<Expr> expr = new ArrayList<>();
+    }
+                   : WHILE  LPAR c=condicao RPAR LCOL (e=expressao{expr.add($e.result);})+ RCOL {$result = new While($c.result, expr);}
+                   ;
 
 id returns [Id result]
    : VARIAVEL {$result=new Id ($VARIAVEL.text);}

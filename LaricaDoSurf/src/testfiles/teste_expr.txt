@@ -1,6 +1,5 @@
-def <onda>(Integer x, String y)[
-   Integer z larica x;
-   String k larica y;
-   aloha(z);
-   aloha(k);
+caldo(y2<=11)[
+    y1 larica y2 + 1;
+    aloha(y1);
+    y2 larica y2 +1;
 ]

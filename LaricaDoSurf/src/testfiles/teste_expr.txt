@@ -1,5 +1,6 @@
-caldo(y2<=11)[
-    y1 larica y2 + 1;
-    aloha(y1);
-    y2 larica y2 +1;
+dropa(y1==10)[
+  aloha(y1);
+  aloha("teste");
+] vaca [
+  aloha(y2);
 ]

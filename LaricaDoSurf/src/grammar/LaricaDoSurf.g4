@@ -28,9 +28,9 @@ definicao returns [Definicao result]
  
 
 expressao returns [Expr result]
-          : expressao_condicional   
+          : ec= expressao_condicional {$result = $ec.result;}   
           | p = funcao_print {$result = $p.result;}
-          | estrutura_repeticao  
+          | er = estrutura_repeticao {$result = $er.result;}
           | d = definicao_funcao {$result = $d.result;}
           | c = chamada_funcao {$result = $c.result;}
           | e = expressao_simples {$result = $e.result;}
@@ -89,8 +89,13 @@ funcao_print returns [FuncaoPrint result]
              :  PRINT LPAR i=id RPAR TERMINAL {$result = new FuncaoPrint($i.result);}  
              ;
                 
-expressao_condicional 
-                      :  IF LPAR condicao RPAR LCOL expressao+ RCOL (ELSE LCOL expressao+ RCOL)?;
+expressao_condicional returns [If result]
+    @init {
+           ArrayList<Expr> If = new ArrayList<>();
+           ArrayList<Expr> Else = new ArrayList<>();
+    }
+      :  IF LPAR c=condicao RPAR LCOL (i=expressao{If.add($i.result);})+ RCOL (ELSE LCOL (e=expressao{Else.add($e.result);})+ RCOL)? {$result = new If($c.result, If, Else);}
+      ;
 
 estrutura_repeticao returns [While result]
     @init {

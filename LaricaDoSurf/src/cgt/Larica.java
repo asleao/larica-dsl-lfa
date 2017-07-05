@@ -32,10 +32,11 @@ public class Larica {
         /*LaricaDoSurfParser.TipagemContext ans = parser.tipagem();         
         LaricaDoSurfParser.ValorContext ans1 = parser.valor();*/
   
-        //LaricaDoSurfParser.Definicao_funcaoContext ans = parser.definicao_funcao();
-        LaricaDoSurfParser.Estrutura_repeticaoContext ans = parser.estrutura_repeticao();
         
-        //LaricaDoSurfParser.ExpressaoContext ans = parser.expressao();
+          
+        //LaricaDoSurfParser.Definicao_funcaoContext ans = parser.definicao_funcao();
+        LaricaDoSurfParser.Expressao_condicionalContext ans = parser.expressao_condicional();
+        //LaricaDoSurfParser.BlocoContext ans = parser.bloco();
                 
                 
         System.out.printf(">>> %s\n", ans.result);   

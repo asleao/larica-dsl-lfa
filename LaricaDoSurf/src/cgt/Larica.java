@@ -22,7 +22,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
  */
 public class Larica {
     public static void main(String[] args) throws IOException {  
-        File file = new File("./src/testfiles/teste_bloco.txt");
+        File file = new File("./src/testfiles/teste_geral.txt");
         FileInputStream fis = new FileInputStream(file);
         ANTLRInputStream input = new ANTLRInputStream(fis);
         LaricaDoSurfLexer lexer = new LaricaDoSurfLexer(input);
@@ -31,8 +31,11 @@ public class Larica {
         
         /*LaricaDoSurfParser.TipagemContext ans = parser.tipagem();         
         LaricaDoSurfParser.ValorContext ans1 = parser.valor();*/
-        
+  
+        //LaricaDoSurfParser.Definicao_funcaoContext ans = parser.definicao_funcao();
         LaricaDoSurfParser.BlocoContext ans = parser.bloco();
+        
+        //LaricaDoSurfParser.ExpressaoContext ans = parser.expressao();
                 
                 
         System.out.printf(">>> %s\n", ans.result);   

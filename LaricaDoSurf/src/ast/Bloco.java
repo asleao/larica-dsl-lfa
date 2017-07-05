@@ -5,16 +5,18 @@
  */
 package ast;
 
+import java.util.List;
+
 /**
  *
  * @author Psicologia Judo
  */
 public class Bloco {
     
-    private Definicao def;
-    private Expr expr;
+    private List<Definicao> def;
+    private List<Expr> expr;
     
-    public Bloco(Definicao def, Expr expr){
+    public Bloco(List<Definicao> def, List<Expr> expr){
         this.def = def;
         this.expr = expr;
     }
@@ -23,5 +25,6 @@ public class Bloco {
     public String toString() {
         return "Bloco{" + "def=" + def + ", expr=" + expr + '}';
     }
-    
+
+   
 }

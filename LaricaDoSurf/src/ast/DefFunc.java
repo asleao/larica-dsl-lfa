@@ -5,27 +5,29 @@
  */
 package ast;
 
-
 import java.util.List;
 
 /**
  *
- * @author Psicologia Judo
+ * @author ana
  */
-public class ChamadaFuncao extends Expr{
+public class DefFunc extends Expr{
     
     private String nomeFunc;
-    private List<Id> list;
+    private List<Definicao> list;
+    private Bloco bloco;
     
-    
-    public ChamadaFuncao(String nomeFunc, List list){
+    public DefFunc(String nomeFunc, List paramFormal, Bloco bloco){
+        this.bloco = bloco;
+        this.list = paramFormal;
         this.nomeFunc = nomeFunc;
-        this.list = list;
     }
 
     @Override
     public String toString() {
-        return "ChamadaFuncao{" + "nomeFunc=" + nomeFunc + ", list=" + list + '}';
+        return "DefFunc{" + "nomeFunc=" + nomeFunc + ", list=" + list + ", bloco=" + bloco + '}';
     }
+    
+    
     
 }

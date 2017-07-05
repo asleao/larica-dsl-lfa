@@ -1,0 +1,6 @@
+def <onda>(Integer x, String y)[
+   Integer z larica x;
+   String k larica y;
+   aloha(z);
+   aloha(k);
+]

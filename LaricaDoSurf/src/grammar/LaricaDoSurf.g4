@@ -13,7 +13,12 @@ prog
     
 
 bloco returns [Bloco result]
-    : def = definicao+  expr = expressao* {$result = new Bloco($definicao.result, $expressao.result);}
+    @init {
+           ArrayList<Definicao> def = new ArrayList<>();
+           ArrayList<Expr> exp = new ArrayList<>();
+    }
+    
+    : (d=definicao{def.add($d.result);})+  (e=expressao{exp.add($e.result);})* {$result = new Bloco(def,exp);}
     ;
 
 definicao returns [Definicao result] 
@@ -26,7 +31,7 @@ expressao returns [Expr result]
           : expressao_condicional   
           | p = funcao_print {$result = $p.result;}
           | estrutura_repeticao  
-          | definicao_funcao 
+          | d = definicao_funcao {$result = $d.result;}
           | c = chamada_funcao {$result = $c.result;}
           | e = expressao_simples {$result = $e.result;}
           | a = atribuicao_valor  {$result = $a.result;}
@@ -49,11 +54,12 @@ atribuicao_valor returns [AtribuicaoValor result]
            | var = VARIAVEL ATRIBUICAO exp = expressao_simples {$result = new AtribuicaoValor($var.text,$exp.result);}  
            ;
              
-definicao_funcao
-                 : DEF_FUNCAO LPAR parametros_formal RPAR LCOL bloco RCOL;
+definicao_funcao returns [DefFunc result]
+                 : DEF_FUNCAO n = NOME_FUNCAO LPAR p=parametros_formal RPAR LCOL b=bloco RCOL {$result = new DefFunc($n.text, $p.args, $b.result);}
+                 ;
 
 chamada_funcao returns [ChamadaFuncao result]
-               : n = NOME_FUNCAO LPAR p=parametros_real RPAR TERMINAL {$result = new ChamadaFuncao($n.text, $p.args);};
+               : CHAMADA_FUNCAO n = NOME_FUNCAO LPAR p=parametros_real RPAR TERMINAL {$result = new ChamadaFuncao($n.text, $p.args);};
 
 
 parametro_funcao returns [Definicao result]
@@ -171,7 +177,8 @@ WHILE: 'caldo';
 PRINT : 'aloha' ;
 VARIAVEL: (LETRAS+)(NUMERO+)? ;
 STRING : ASP CARACTERES+ ASP ;
-DEF_FUNCAO: 'def ' CARACTERES+;
-NOME_FUNCAO: 'call ' CARACTERES+;  
+DEF_FUNCAO: 'def ';
+CHAMADA_FUNCAO: 'call ';
+NOME_FUNCAO: '<'CARACTERES+'>';
 VIRGULA : ',';
 WS : [ \t\r\n]+ -> skip;

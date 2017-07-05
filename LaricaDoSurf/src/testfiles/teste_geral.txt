@@ -1,8 +1,17 @@
-Integer y1 larica 10 ;
-Integer y2 larica 10 ;
+Integer y1 larica 10;
+Integer y2 larica 10;
 Integer y3;
 
-y1 larica y2;
+
+def <onda>(Integer x, String y)[
+   Integer z larica x;
+   String k larica y;
+   aloha(z);
+   aloha(k);
+]
+
+call <onda>(10,"onda");
+
 
 dropa(y1==10)[
   aloha(y1);
@@ -17,11 +26,3 @@ caldo(y2<=11)[
     y2 larica y2 +1;
 ]
 
-def onda(Integer x, String y)[
-   Integer z larica x;
-   String k larica y;
-   aloha(z);
-   aloha(k);
-]
-
-call onda(10,"Onda");
